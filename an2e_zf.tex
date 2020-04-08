@@ -145,7 +145,7 @@ Alle normale differenziazionsregeln gelten.
 \section{Ebene \brpage{250} und Raumkurven \brpage{263}}
 \begin{sideways}
 \centering
-\renewcommand{\arraystretch}{3.5}
+\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{l *{3}{>{\(\displaystyle}l<{\)}} }
 \toprule
 \textbf{Ebene Kurven} & \textbf{Explizit} & \textbf{Polar} & \textbf{Parameter} \\
@@ -154,28 +154,29 @@ Bogenl\"ange \brpage{251}
 	& \int\limits_a^b \sqrt{1 + (y')^2} \dd{x}
 	& \int\limits_\alpha^\beta \sqrt{(r')^2 + r^2} \dd{\varphi}
 	& \int\limits_{t_0}^{t_1} \sqrt{\dot{x}^2 + \dot{y}^2} \dd{t} = \int\limits_{t_0}^{t_1} |\vec{c}| \dd{t}
-\\
+\\[1cm]
 Fl\"ache
 	& \int\limits_a^b |f(x)| \dd{x}
 	& \frac{1}{2}\int\limits_\alpha^\beta r(\varphi)^2 \dd{\varphi}
 	& \frac{1}{2}\int\limits_{t_0}^{t_1} x\dot{y} - \dot{x}y \dd{t} = \frac{1}{2}\int\limits_{t_0}^{t_1}\det(\vec{c},\dot{\vec{c}}) \dd{t}
-\\
+\\[1cm]
 Rotationsvolumen um \(x\)
 	& \pi \left|\int\limits_a^b y^2 \dd{x} \right|
 	& \pi \left|\int\limits_{t_0}^{t_1} y \dot{x} \dd{t} \right|
 	& \pi \left|\int\limits_\alpha^\beta r^2 \sin^2 \varphi (r'\cos\varphi - r\sin\varphi) \dd{\varphi} \right|
-\\
+\\[1cm]
 Rotationsoberfl\"ache um \(x\)
 	& 2\pi \int\limits_a^b |y| \sqrt{1 + (y')^2} \dd{x}
 	& 2\pi \int\limits_\alpha^\beta |r\sin(\varphi)| \sqrt{(r')^2 + r^2} \dd{\varphi}
 	& 2\pi \int\limits_{t_0}^{t_1} |y| \sqrt{\dot{x}^2 + \dot{y}^2} \dd{t}
-\\
+\\[1cm]
 % Rotationsvolumen um \(y\) \\
 % Rotationsoberfl\"ache um \(y\) \\
 \bottomrule
 \end{tabular}
 \end{sideways}
 
+\begin{multicols}{2}
 \subsection{Kr\"ummung}
 \[
 	\kappa = \deriv{\alpha}{s} = \frac{\ddot{y}}{(1+\dot{y}^2)^{3/2}}
@@ -186,6 +187,27 @@ Rotationsoberfl\"ache um \(x\)
 	\quad \stackrel{\text{3D}}{=} \quad
 	|\vec{\dot{c}}\times\vec{\ddot{c}}|\,|\vec{c}|^{-3}
 \]
+
+\begin{thebibliography}{1}
+  \bibitem{hsr}
+    \texttt{An2E} Vorlesungen an der Hochschule f\"ur Technik Rapperswil und der dazugehoerige Skript,
+    \textit{Dr. Bernhard Zgraggen}, Fr\"uhlingssemester 2020
+  \bibitem{bronstein}
+    Taschenbuch der Mathematik,
+    10. \"uberarbeitete Auflage, 2016 (1977),
+    \textit{Bronstein, Semendjajew, Musiol, M\"uhlig}, 
+    \texttt{ISBN 978-3-8085-5789-1}
+  \bibitem{mathe2}
+    Mathematik 2 Lehrbuch für ingenieurwissenschaftliche Studieng\"ange,
+    2012, 7. Auflage, XII, Springer Berlin,
+    \textit{Albert Fetzer, Heiner Fränkel},
+    \texttt{ISBN-10 364224114X},
+    \texttt{ISBN-13 9783642241147}
+    
+\end{thebibliography}
+
+\section*{Notation}
+Rot markierte Zahlen wie zB \brpage{477} sind Hinweise auf die Seiten in der ``Bronstein'': ``Taschenbuch der Mathematik, 10. \"uberarbeitete Auflage''. \texttt{ISBN 978-3-8085-5789-1}
 
 \section*{License}
 { \tt
@@ -198,5 +220,5 @@ You should have received a copy of the license along with this work. If not, see
 \url{http://creativecommons.org/licenses/by-sa/4.0/}
 }
 
-
+\end{multicols}
 \end{document}
