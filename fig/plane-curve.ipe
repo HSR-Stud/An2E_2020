@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20200409104110" modified="D:20200409113038"/>
+<info created="D:20200409104110" modified="D:20200409140111"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -258,7 +258,7 @@ h
 128 304 m
 128 512 l
 </path>
-<path stroke="black" pen="heavier" arrow="ptarc/normal">
+<path stroke="black" arrow="arc/small">
 112 320 m
 400 320 l
 </path>
@@ -274,7 +274,7 @@ h
 </path>
 <text matrix="1 0 0 1 -8 -8" transformations="translations" pos="128 528" stroke="black" type="label" width="8.837" height="7.41" depth="3.35" valign="baseline" size="LARGE" style="math">y</text>
 <text matrix="1 0 0 1 -8 0" transformations="translations" pos="416 320" stroke="black" type="label" width="9.579" height="7.412" depth="0" valign="baseline" size="LARGE" style="math">x</text>
-<text transformations="translations" pos="304 496" stroke="black" type="label" width="81.913" height="12.896" depth="4.29" valign="baseline" size="LARGE" style="math">\Lambda = \mathbf{u}(x,y)</text>
+<text matrix="1 0 0 1 -24 20" transformations="translations" pos="304 496" stroke="black" type="label" width="11.036" height="11.761" depth="0" valign="baseline" size="LARGE" style="math">\Lambda</text>
 <path stroke="black">
 128 320 m
 192 416 l
@@ -287,18 +287,18 @@ h
 <text matrix="0.550992 0.834511 -0.834511 0.550992 373.69 31.5869" transformations="rigid" pos="152 368" stroke="black" type="label" width="18.984" height="7.473" depth="2.49" valign="baseline" style="math">\mathbf{r}(\varphi)</text>
 <text transformations="translations" pos="192 424" stroke="black" type="label" width="53.801" height="8.965" depth="2.99" valign="baseline" size="large" style="math">\left(x(t), y(t)\right)</text>
 <use name="mark/disk(sx)" pos="192 416" size="normal" stroke="black"/>
-<path matrix="2 0 0 2 -320 -424" stroke="darkred" arrow="ptarc/tiny">
-320 424 m
-336 440 l
-</path>
-<path matrix="1 0 0 1 0 0" stroke="navy" fill="white" arrow="ptarc/tiny">
-320 424 m
-336 408 l
-</path>
-<text matrix="1 0 0 1 16 16" transformations="translations" pos="340 444" stroke="darkred" type="label" width="23.649" height="10.955" depth="2.99" valign="baseline" size="large" style="math">\dot{\Lambda}(\tau)</text>
-<text matrix="1 0 0 1 0 -12" transformations="translations" pos="340 408" stroke="navy" type="label" width="23.649" height="10.955" depth="2.99" valign="baseline" size="large" style="math">\ddot{\Lambda}(\tau)
+<text matrix="1 0 0 1 12 32" transformations="translations" pos="340 444" stroke="darkred" type="label" width="23.649" height="10.955" depth="2.99" valign="baseline" size="large" style="math">\dot{\Lambda}(\tau)</text>
+<text matrix="1 0 0 1 -64 48" transformations="translations" pos="340 408" stroke="navy" type="label" width="23.649" height="10.955" depth="2.99" valign="baseline" size="large" style="math">\ddot{\Lambda}(\tau)
 </text>
-<use name="mark/disk(sx)" pos="320 424" size="normal" stroke="black"/>
-<text matrix="1 0 0 1 -16 -4" transformations="translations" pos="312 432" stroke="black" type="label" width="22.364" height="6.128" depth="0" valign="baseline" style="math">t = \tau</text>
+<text matrix="1 0 0 1 24 4" transformations="translations" pos="312 432" stroke="black" type="label" width="22.364" height="6.128" depth="0" valign="baseline" style="math">t = \tau</text>
+<path stroke="darkred" arrow="arc/small">
+329.819 440.07 m
+348 480 l
+</path>
+<path stroke="darkblue" arrow="arc/small">
+329.819 440.07 m
+304 452 l
+</path>
+<use name="mark/disk(sx)" pos="329.819 440.07" size="normal" stroke="black"/>
 </page>
 </ipe>
