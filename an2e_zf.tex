@@ -143,7 +143,7 @@ Alle normale differenziazionsregeln gelten.
 \end{multicols}
 
 \section{Ebene \brpage{250} und Raumkurven \brpage{263}}
-\begin{sideways}
+\begin{sidewaystable}
 \centering
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{l *{3}{>{\(\displaystyle}l<{\)}} }
@@ -174,9 +174,16 @@ Rotationsoberfl\"ache um \(x\)
 % Rotationsoberfl\"ache um \(y\) \\
 \bottomrule
 \end{tabular}
-\end{sideways}
+\end{sidewaystable}
 
 \begin{multicols}{2}
+\subsection{Darstellungen}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\linewidth]{fig/plane-curve.eps}
+\caption{Die ebene Kurve \(\Lambda(t)\) kann Explizit (in diesem Fall nicht), Implizit \(\vec{u}(x,y)\), Polar \(\vec{r}(\varphi)\) oder in Parameterform \((x(t), y(t))\) dargestellt werden.}
+\end{figure}
+
 \subsection{Kr\"ummung}
 \[
 	\kappa = \deriv{\alpha}{s} = \frac{\ddot{y}}{(1+\dot{y}^2)^{3/2}}
