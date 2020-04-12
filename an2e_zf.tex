@@ -129,14 +129,19 @@ Die selbe gilt umgekehrt f\"ur Divergenz. Wenn \(0 < h(x) \leq f(x)\)
 \(g\) und \(h\) hei{\ss}en Majorant und Minorant bzw.
 
 \section{Implizite Ableitung \brpage{448}}
-Alle normale differenziazionsregeln gelten.
+\begin{alignat*}{3}
+  (af)' &= af' &\quad&& (u(v(x)))' &= u'(v)v' \\
+  (uv)' &= u'v + uv' &\quad&& \left(\frac{u}{v}\right)' &= \frac{u'v-uv'}{v^2} \\
+  \left(\sum u_i\right)' &= \sum u'_i &\quad&& (\ln u)' &= \frac{u'}{u} \\
+  (f^{-1})' &= \frac{1}{f'(f^{-1}(x))}
+\end{alignat*}
+Alle normale differenziazionsregeln f\"ur \(f(x)\) gelten.
+Allgemeiner f\"ur die implizite Funktion \(F(x,y) = 0\)
 \[
-    \dd{y} = y'\dd{x}
+ 	\dd{y} = y'\dd{x}
+	\qquad
+	\pderiv{F}{x} + \pderiv{F}{y} y' = 0
 \]
-%Allgemeiner f\"ur die implizite Funktion \(F(x,y) = 0\)
-%\[
-%   \pderiv{F}{x} + \pderiv{F}{y} y' = 0
-%\]
 
 
 \section{Differentialgeometrie}
@@ -192,7 +197,7 @@ Man kann auch die Tangentengleichung und die Normalengleichung zur Zeitpunkt \(\
 \end{align*}
 
 \subsubsection{Kr\"ummung und Kr\"ummungsradius \brpage{254}}
-Siehe Tab. \ref{tab:plane-curves-big} f\"ur die Rechnungsformeln.
+Siehe Tab. \ref{tab:plane-curves-big} f\"ur die Rechnungsformeln und Abb. \ref{fig:plane-curvature} f\"ur eine graphische Deutung.
 \[
     \kappa 
     = \lim_{\Delta s\to 0} \frac{\Delta \theta}{\Delta s}
@@ -200,6 +205,28 @@ Siehe Tab. \ref{tab:plane-curves-big} f\"ur die Rechnungsformeln.
     \qquad
     R = 1/\kappa
 \]
+Eine gerade hat \(\kappa = 0\) und \(R = \infty\).
+Entsprechend der Orientierung der \(x\)-Achse, entspricht einer \(\kappa > 0\) eine Linkskr\"ummung und \(\kappa < 0\) eine Rechtskr\"ummung.
+
+Der Kr\"ummungskreis hat Ma{\ss}zahl \(\rho = 1/|\kappa|\) und Mittelpunkt \(P_c\) gem\"a\ss
+\[
+    P_c = \begin{pmatrix} x_c \\ y_c \end{pmatrix} 
+    = \begin{pmatrix} x \\ y \end{pmatrix} + \frac{1}{\kappa} \vec{\hat{n}}
+\]
+Wobei \(\vec{\hat{n}} = \vec{\ddot{\Lambda}}^0\) ist der Normalenvektor.
+
+\subsubsection{Konvexit\"at}
+Sei die Kurve \(\Lambda\) durch \(f \in C^2\) auf \([a,b]\) gegeben.
+\begin{itemize}
+    \item \(f\) ist auf \((a,b)\) konvex (bzw. konkav), wenn \(\kappa \geq 0\) (bzw. \(\kappa \leq 0\)) \(\forall x \in (a,b)\).
+    \item \(f\) ist auf \((a,b)\) streng konvex (bzw. konkav), wenn \(\kappa > 0\) (bzw. \(\kappa < 0\)) \(\forall x \in (a,b)\).
+    \item Hat in \(\Lambda\) in \(P\) einen Wendepunkt, dann \(\kappa(P) = 0\).
+\end{itemize}
+
+
+
+\subsubsection{Evoluten und Evolventen \brpage{262}}
+
 
 \begin{figure}[h]
 \centering
@@ -252,38 +279,42 @@ You should have received a copy of the license along with this work. If not, see
 \renewcommand{\arraystretch}{3}
 \begin{tabular}{l *{3}{>{\(\displaystyle}l<{\)}} }
 \toprule
-\textbf{Ebene Kurven} & \textbf{Explizit } y = f(x) & \textbf{Polar } \vec{r}(\varphi) & \textbf{Parameter } \vec{c}(t) = \left(x(t), y(y)\right) \\
+\textbf{Ebene Kurven} & \textbf{Kartesich } y = f(x) & \textbf{Polar } \vec{r}(\varphi) & \textbf{Parameter } \vec{c}(t) = \left(x(t), y(y)\right) \\
 \midrule
-Bogenl\"ange \brpage{251}
-    & \int\limits_a^b \sqrt{1 + (f')^2} \dd{x}
-    & \int\limits_\alpha^\beta \sqrt{(r')^2 + r^2} \dd{\varphi}
-    & \int\limits_{t_0}^{t_1} \sqrt{\dot{x}^2 + \dot{y}^2} \dd{t} = \int\limits_{t_0}^{t_1} |\vec{c}| \dd{t}
+Anstieg \brpage{448}
+    & f'
+    & \frac{r'\sin\varphi + r\cos\varphi}{r'\cos\varphi - r\sin\varphi}
+    & \dot{x}/\dot{y}
 \\
-Fl\"ache
+Fl\"ache \brpage{493}
     & \int\limits_a^b |f(x)| \dd{x}
     & \frac{1}{2}\int\limits_\alpha^\beta r(\varphi)^2 \dd{\varphi}
     & \frac{1}{2}\int\limits_{t_0}^{t_1} x\dot{y} - \dot{x}y \dd{t} = \frac{1}{2}\int\limits_{t_0}^{t_1}\det(\vec{c},\dot{\vec{c}}) \dd{t}
 \\
+Bogenl\"ange \brpage{251,514}
+    & \int\limits_a^b \sqrt{1 + (f')^2} \dd{x}
+    & \int\limits_\alpha^\beta \sqrt{(r')^2 + r^2} \dd{\varphi}
+    & \int\limits_{t_0}^{t_1} \sqrt{\dot{x}^2 + \dot{y}^2} \dd{t} = \int\limits_{t_0}^{t_1} |\vec{c}| \dd{t}
+\\
+Kr\"ummung \(\kappa\) \brpage{254}
+    & \frac{f''}{\sqrt{1+(f')^2}^3}
+    & \frac{2(r')^2 - r r'' + r^2}{\sqrt{r^2 + (r')^2}^3}
+    & \frac{\ddot{y}\dot{x} - \ddot{x}\dot{y}}{\sqrt{\dot{x}^2 + \dot{y}^2}^3} 
+    = \frac{\det(\vec{\dot{c}},\vec{\ddot{c}})}{|\vec{\dot{c}}|^3}
+\\[1em]
 \midrule
-Rotationsvolumen um \(x\)
+Rotationsvolumen um \(x\) \brpage{516}
     & \pi \left|\int\limits_a^b y^2 \dd{x} \right|
     & \pi \left|\int\limits_{t_0}^{t_1} y \dot{x} \dd{t} \right|
     & \pi \left|\int\limits_\alpha^\beta r^2 \sin^2 \varphi (r'\cos\varphi - r\sin\varphi) \dd{\varphi} \right|
 \\
-Rotationsoberfl\"ache um \(x\)
+Rotationsoberfl\"ache um \(x\) \brpage{515}
     & 2\pi \int\limits_a^b |y| \sqrt{1 + (y')^2} \dd{x}
     & 2\pi \int\limits_\alpha^\beta |r\sin(\varphi)| \sqrt{(r')^2 + r^2} \dd{\varphi}
     & 2\pi \int\limits_{t_0}^{t_1} |y| \sqrt{\dot{x}^2 + \dot{y}^2} \dd{t}
 \\
 % Rotationsvolumen um \(y\) \\
 % Rotationsoberfl\"ache um \(y\) \\
-\midrule
-Kr\"ummung \(\kappa\)
-    & \frac{f''}{\sqrt{1+(f')^2}^3}
-    & 
-    & \frac{\ddot{y}\dot{x} - \ddot{x}\dot{y}}{\sqrt{\dot{x}^2 + \dot{y}^2}^3} 
-    = \frac{\det(\vec{\dot{c}},\vec{\ddot{c}})}{|\vec{\dot{c}}|^3}
-\\
 \bottomrule
 \end{tabular}
 \end{sidewaystable}
