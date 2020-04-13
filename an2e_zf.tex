@@ -145,7 +145,7 @@ Allgemeiner f\"ur die implizite Funktion \(F(x,y) = 0\)
 
 
 \section{Differentialgeometrie}
-\subsection{Ebene \brpage{250} Kurven}
+\subsection{Ebene Kurven \brpage{250}}
 
 \subsubsection{Darstellungen und Umwanldung}
 \begin{figure}[h]
@@ -177,6 +177,20 @@ Daher gilt
     t = \phi^{-1}(x) \quad y = \psi(t) = \psi \circ \phi^{-1}(x) = f(x)
 \]
 Wenn \(\dot{\psi} \neq 0\) ist dann \(x = \phi \circ \psi^{-1}(y)\)
+
+\subsubsection{Bogenl\"ange \brpage{251,514}} \label{sec:arc-length}
+Weitere Formeln (z.B. polar) findet man in Tab. \ref{tab:plane-curves-big}.
+\[
+    \ell = \int\limits_a^b \sqrt{1 + (f')^2} \dd{x} 
+    = \int\limits_{t_0}^{t_1} |\vec{\dot{c}}| \dd{t}
+\]
+
+\subsubsection{Umparametrisierung nach Bogenl\"ange}
+Sei die Kurve \(\vec{\Lambda}(t), t \in I\) mindestens einmal differenzierbar, und \(\ell\) die Bogenl\"ange (gem\"a{\ss} \S\ref{sec:arc-length}) im Intervall. Die Umparametrisierung \(\vec{\Lambda}(s)\) ist dann
+\[
+    s = \ell t \implies \vec{\Lambda}(s) = \vec{\Lambda}(t/\ell)
+\]
+Die neue Parametrisierung hat \(\vec{\Lambda}' = 1\) (nach \(s\) differenziert), d.h. die erste Ableitung ist der tangent Einheitsvector!
 
 \subsubsection{Tangente und Normalvektor \brpage{251,252}}
 F\"ur eine ebene Kurve \(\vec{\Lambda}(t)\) \(\tau, t \in I\), der Vektor \(\vec{\dot\Lambda}(\tau)\) ist immer an \(\vec{\Lambda}(\tau)\) tangent. \(\vec{\ddot{\Lambda}}(\tau)\) ist zur Kurve normal.
@@ -213,7 +227,7 @@ Der Kr\"ummungskreis hat Ma{\ss}zahl \(\rho = 1/|\kappa|\) und Mittelpunkt \(P_c
     P_c = \begin{pmatrix} x_c \\ y_c \end{pmatrix} 
     = \begin{pmatrix} x \\ y \end{pmatrix} + \frac{1}{\kappa} \vec{\hat{n}}
 \]
-Wobei \(\vec{\hat{n}} = \vec{\ddot{\Lambda}}^0\) ist der Normalenvektor.
+Wobei \(\vec{\hat{n}} = \vec{\ddot{\Lambda}}^0\) ist der Normalvektor.
 
 \subsubsection{Konvexit\"at}
 Sei die Kurve \(\Lambda\) durch \(f \in C^2\) auf \([a,b]\) gegeben.
@@ -222,8 +236,6 @@ Sei die Kurve \(\Lambda\) durch \(f \in C^2\) auf \([a,b]\) gegeben.
     \item \(f\) ist auf \((a,b)\) streng konvex (bzw. konkav), wenn \(\kappa > 0\) (bzw. \(\kappa < 0\)) \(\forall x \in (a,b)\).
     \item Hat in \(\Lambda\) in \(P\) einen Wendepunkt, dann \(\kappa(P) = 0\).
 \end{itemize}
-
-
 
 \subsubsection{Evoluten und Evolventen \brpage{262}}
 
@@ -257,6 +269,11 @@ Sei die Kurve \(\Lambda\) durch \(f \in C^2\) auf \([a,b]\) gegeben.
 
 \section*{Notation}
 Rot markierte Zahlen wie zB \brpage{477} sind Hinweise auf die Seiten im ``Bronstein'' \cite{bronstein}
+
+\begin{itemize}
+    \item \(C^n\) ist der Menge der glatten \(n\)-mal differenzierb\"aren Funktionen.
+    \item Das Zeichen \(\forall\) bedeutet ``f\"ur alle''
+\end{itemize}
 
 \section*{License}
 { \tt
@@ -294,7 +311,7 @@ Fl\"ache \brpage{493}
 Bogenl\"ange \brpage{251,514}
     & \int\limits_a^b \sqrt{1 + (f')^2} \dd{x}
     & \int\limits_\alpha^\beta \sqrt{(r')^2 + r^2} \dd{\varphi}
-    & \int\limits_{t_0}^{t_1} \sqrt{\dot{x}^2 + \dot{y}^2} \dd{t} = \int\limits_{t_0}^{t_1} |\vec{c}| \dd{t}
+    & \int\limits_{t_0}^{t_1} \sqrt{\dot{x}^2 + \dot{y}^2} \dd{t} = \int\limits_{t_0}^{t_1} |\vec{\dot{c}}| \dd{t}
 \\
 Kr\"ummung \(\kappa\) \brpage{254}
     & \frac{f''}{\sqrt{1+(f')^2}^3}
