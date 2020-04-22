@@ -19,7 +19,13 @@ Inhalt
     - Kruemmung und Kruemmungskreisradius
     - Konvexitaet
     - Evoluten
+  - Kurve 2. Ordnung - Kegelschnitt
   - Raumkurven
+- Reihen (WIP)
+  - Arithmetische, Geometrische und Harmonische
+  - Unendliche
+    - Absolut, bedingt, unbedigt konvergent bzw. divergent
+    - Konvergenzkriterien
 
 License (CC BY-SA)
 ---------------
