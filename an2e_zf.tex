@@ -6,14 +6,24 @@
 
 \numberwithin{equation}{subsection}
 
+\usepackage{multicol}
+
 \usepackage{float}
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{rotating}
+\usepackage{enumitem}
 
 \usepackage[margin=2cm, marginpar=0pt]{geometry}
 \usepackage{graphicx}
 \usepackage{xcolor}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={4.0},
+]{doclicense}
+
 
 %\usepackage{showframe}
 
@@ -248,6 +258,104 @@ Sei die Kurve \(\Lambda\) durch \(f \in C^2\) auf \([a,b]\) gegeben.
 \end{figure}
 
 \subsection{Raumkurven \brpage{263}}
+
+\subsection{Kurven 2. Ordnung -- Kegelschnitt \brpage{212}}
+Die Polarform f\"ur die allgemeine Gleichung der Kurver 2. Ordnung ist
+\begin{equation} \label{eqn:conics-polar}
+    r = \frac{p}{1 + \varepsilon \cos\varphi}
+\end{equation}
+Der parameter \(\varepsilon\) \"andert die Gestalt folgendermaßen
+\begin{multicols}{2}
+\begin{itemize}
+    \item \(\varepsilon = 0\) Kreis
+    \item \(\varepsilon \in (0;1)\) Ellipse
+\end{itemize}
+\columnbreak
+\begin{itemize}
+    \item \(\varepsilon = 1\) Parabel
+    \item \(\varepsilon > 1\) Hyperbel
+\end{itemize}
+\end{multicols}
+
+\subsubsection{Kreis \brpage{204}}
+{\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{l >{\(\displaystyle}l<{\)}}
+    Kartesisch & (x - C_x)^2 + (y - C_y)^2 = r^2 \\
+    Parameter  & x = c_x + R\cos t \quad y = c_y + R\sin t
+\end{tabular}}
+
+\subsubsection{Ellipse \brpage{205}}
+{\renewcommand{\arraystretch}{2}
+\begin{tabular}{l >{\(\displaystyle}l<{\)}}
+    Kartesisch & \left(\frac{x - C_x}{a}\right)^2 + \left(\frac{y - C_y}{b}\right)^2 = 1 \\
+    Parameter  & x = a\cos t \quad y = b\sin t
+\end{tabular}}
+
+\subsubsection{Hyperbel \brpage{207}}
+{\renewcommand{\arraystretch}{2}
+\begin{tabular}{l >{\(\displaystyle}l<{\)}}
+    Kartesisch & \left(\frac{x - C_x}{a}\right)^2 - \left(\frac{y - C_y}{b}\right)^2 = 1 \\
+    Parameter  & x = a\cosh t \quad y = b\sinh t
+\end{tabular}}
+
+\subsubsection{Parabel \brpage{210}}
+\begin{tabular}{l >{\(\displaystyle}l<{\)}}
+    Kartesisch & y = ax^2 + bx + c \\
+    Parameter  & x = t \quad y = at^2 + bt + c
+\end{tabular}
+
+
+\section{Reihen}
+\subsection{Bemerkenswerte Rehien \brpage{19,477}}
+\paragraph{Arithmetische Reihe} Sei \(a_1 \in \mathbb{R}\) und \(d \in \mathbb{R} \setminus \{0\}\), dann aus der arithmetischen Folge \(\langle a_k \rangle\) mit \(a_k = a_1 + (k-1)d\) erh\"alt man die Reihe \(\langle A_n \rangle\) mit:
+\begin{align*}
+    A_n &= a_1 + \sum_{k=1}^n (k-1)d = a_1 + d + 2d + \cdots + (n-1)d\\
+    &= \frac{n}{2}\big( 2a_1 + (n-1)d\big) = \frac{n}{2}(a_1 + a_n)
+\end{align*}
+    
+\paragraph{Geometrische Reihe} Sei \(a_1 \in \mathbb{R}\) und \(q \in \mathbb{R} \setminus \{0;1\}\). Aus der geometrischen Folge \(\langle a_k \rangle\) mit \(a_k = a_1 q^k\) erh\"alt man die Reihe \(\langle G_n \rangle\) mit:
+\begin{align*}
+    G_n = a_1 \sum_{k=1}^n q^{k-1} = a_1 \frac{1-q^n}{1-q}
+\end{align*}
+    
+\paragraph{Harmonische Reihe} Aus der folge \(\langle a_k \rangle\) mit \(a_k = 1/k\) erh\"alt man die Reihe \(\langle H_n \rangle\) mit:
+\begin{align*}
+    H_n = \sum_{k=1}^n = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n}
+\end{align*}
+
+\subsection{Unendlichen \brpage{470,477}}
+
+\subsubsection{Konvergenzkriterien \brpage{472}}
+Sei \(\langle a_n \rangle\) eine Folge die Reihe
+\( \displaystyle
+    s = \sum_{n=1}^\infty a_n
+\).
+
+\paragraph{Cauchy'sches \brpage{475}}
+
+\paragraph{Wurzelkriterium von Cauchy \brpage{474}}
+\[
+    \alpha = \limsup_{n\to\infty} \sqrt[n]{\left| a_n \right|}
+    \qquad
+    \alpha < 1 \implies \text{ konvergent}
+\]
+
+\paragraph{Quotientenkriterium von d'Alambert \brpage{474}}
+
+\paragraph{Leibniz'sches \brpage{476}}
+
+\paragraph{Integralkriterium \brpage{475}}
+Sei \(f(x) \geq 0\), \(x \in [1;\infty)\) und \(f\downarrow\). Merkt man dass:
+\[
+    S = \int\limits_1^n f(x) \dd{x} 
+    \leq \sum_{k=1}^n a_k
+    \leq \int\limits_2^n f(x-1) \dd{x} = S
+\]
+Somit folgt:
+\[
+    \text{konvergiert } \int\limits_1^\infty f(x) \dd{x}
+    \implies \text{konvergiert } s
+\]
 
 \begin{thebibliography}{3}
   \bibitem{hsr}
