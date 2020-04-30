@@ -30,6 +30,9 @@ Inhalt
   - Unendliche
     - Absolut, bedingt, unbedigt konvergent bzw. divergent
     - Konvergenzkriterien
+  - Potenzenreihen
+    - Konvergenzradius / Bereich
+    - Ableitung / Integration
 
 License (CC BY-SA)
 ---------------
