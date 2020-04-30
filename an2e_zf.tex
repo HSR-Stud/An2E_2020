@@ -113,7 +113,7 @@ Wenn \(f\) im Punkt \(u \in (a,b)\) nicht definiert ist.
 \end{equation}
 
 \subsection{Cauchy Hauptwert \brpage{523}}
-Der C.H. (oder PV f\"ur \emph{Principal Value} auf Englisch) eines uneigentlichen Integrals ist der Wert, wenn in einem Integral wie \eqref{eqn:int-with-pole} beide Grenzwerte mit der gleiche Geschwindigkeit gegen 0 sterben.
+Der C.H. (oder PV f\"ur \emph{Principal Value} auf Englisch) eines uneigentlichen Integrals ist der Wert, wenn in einem Integral wie \eqref{eqn:int-with-pole} beide Grenzwerte mit der gleiche Geschwindigkeit gegen 0 streben.
 \[
     \text{C.H.} \int\limits_a^b f \dd{x} = 
     \lim_{\epsilon\to +0} \left( \int\limits_a^{u-\epsilon} f \dd{x}
@@ -166,7 +166,7 @@ Allgemeiner f\"ur die implizite Funktion \(F(x,y) = 0\)
 \end{figure}
 
 Sei \(\Lambda: x = \phi(t),\, y = \psi(t), t\in I\) eine glatte Jordankurve.
-Beispiel im Abb. \ref{fig:plane-curve}.
+Beispiel in Abb. \ref{fig:plane-curve}.
 
 \paragraph{Polar zu Kartesian}
 \[
@@ -268,12 +268,12 @@ Der parameter \(\varepsilon\) \"andert die Gestalt folgendermaßen
 \begin{multicols}{2}
 \begin{itemize}
     \item \(\varepsilon = 0\) Kreis
-    \item \(\varepsilon \in (0;1)\) Ellipse
+    \item \(|\varepsilon| \in (0;1)\) Ellipse
 \end{itemize}
 \columnbreak
 \begin{itemize}
-    \item \(\varepsilon = 1\) Parabel
-    \item \(\varepsilon > 1\) Hyperbel
+    \item \(|\varepsilon| = 1\) Parabel
+    \item \(|\varepsilon| > 1\) Hyperbel
 \end{itemize}
 \end{multicols}
 
@@ -317,55 +317,120 @@ Der parameter \(\varepsilon\) \"andert die Gestalt folgendermaßen
 
 \section{Reihen}
 \subsection{Bemerkenswerte Rehien \brpage{19,477}}
-\paragraph{Arithmetische Reihe} Sei \(a_1 \in \mathbb{R}\) und \(d \in \mathbb{R} \setminus \{0\}\), dann aus der arithmetischen Folge \(\langle a_k \rangle\) mit \(a_k = a_1 + (k-1)d\) erh\"alt man die Reihe \(\langle A_n \rangle\) mit:
+\paragraph{Arithmetische Reihe}
+Sei \(a_1 \in \mathbb{R}\) und \(d \in \mathbb{R} \setminus \{0\}\), dann aus der arithmetischen Folge \(\langle a_k \rangle\) mit \(a_k = a_1 + (k-1)d\) erh\"alt man die Reihe \(\langle A_n \rangle\) mit:
 \begin{align*}
     A_n &= a_1 + \sum_{k=1}^n (k-1)d = a_1 + d + 2d + \cdots + (n-1)d\\
     &= \frac{n}{2}\big( 2a_1 + (n-1)d\big) = \frac{n}{2}(a_1 + a_n)
 \end{align*}
     
-\paragraph{Geometrische Reihe} Sei \(a_1 \in \mathbb{R}\) und \(q \in \mathbb{R} \setminus \{0;1\}\). Aus der geometrischen Folge \(\langle a_k \rangle\) mit \(a_k = a_1 q^k\) erh\"alt man die Reihe \(\langle G_n \rangle\) mit:
-\begin{align*}
+\paragraph{Geometrische Reihe}
+Sei \(a_1 \in \mathbb{R}\) und \(q \in \mathbb{R} \setminus \{0;1\}\). Aus der geometrischen Folge \(\langle g_k \rangle\) mit \(g_k = a_1 q^k\) erh\"alt man die Reihe \(\langle G_n \rangle\) mit:
+\[
     G_n = a_1 \sum_{k=1}^n q^{k-1} = a_1 \frac{1-q^n}{1-q}
-\end{align*}
+\]
     
-\paragraph{Harmonische Reihe} Aus der folge \(\langle a_k \rangle\) mit \(a_k = 1/k\) erh\"alt man die Reihe \(\langle H_n \rangle\) mit:
-\begin{align*}
+\paragraph{Harmonische Reihe}
+Aus der folge \(\langle h_k \rangle\) mit \(h_k = 1/k\) erh\"alt man die Reihe \(\langle H_n \rangle\) mit:
+\[
     H_n = \sum_{k=1}^n = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n}
-\end{align*}
+\]
+
+\paragraph{Potenzreihe} Siehe \S\ref{sec:powerseries}
 
 \subsection{Unendlichen \brpage{470,477}}
+Sei \(\langle a_n \rangle\) eine Folge die Reihe \(\langle S_n \rangle\),
+\[
+    S_n = \sum_{k=1}^n a_k \qquad S = \lim_{n\to\infty} S_n
+\].
+
+\subsubsection{Konvergenz \brpage{472,475}}
+
+\paragraph{Absolute \brpage{475}}
+Die Reihe \(S_n\) hei{\ss}t \emph{absoulut konvergent} wenn
+\[
+    \lim_{n\to\infty} \sum_{k=1}^n \left| a_k \right| \text{ konvergiert}
+\]
+Wenn eine Reihe absolut konvergent ist, dann
+\begin{enumerate}
+    \item sie ist auch konvergent.
+    \item die Glieder k\"onnen nach Belieben miteinander vertauscht weden.
+    \item sei \(\displaystyle 
+        c_n = \sum_{k=1}^n a_k b_{n-k+1} = a_n b_1 + a_{n-1} b_2 + \cdots + a_1 b_n
+    \) (\(a_n\) und \(b_n\) abs. konvergent gegen \(a\) bzw. \(b\)), dann
+    \[
+        \sum_{n=1}^\infty c_n = 
+        \left(\sum_{n=1}^\infty a_n\right)
+        \left(\sum_{n=1}^\infty b_n\right)
+    \]
+\end{enumerate}
+
+\paragraph{Bedingte} Wenn die Reihe \(S_n\) nicht abs. konvergiert, aber es eine Umordnung gibt, soda{\ss} die umgeordnete Reihe entweder divergent ist oder gegen eine von verschiedene Summe konvergiert. Dann hei{\ss}t die Reihe \emph{bedingt konvergent}.
+
 
 \subsubsection{Konvergenzkriterien \brpage{472}}
-Sei \(\langle a_n \rangle\) eine Folge die Reihe
-\( \displaystyle
-    s = \sum_{n=1}^\infty a_n
-\).
 
 \paragraph{Cauchy'sches \brpage{475}}
+\[
+    \forall \varepsilon > 0 : \forall m,n \in \mathbb{N}, m > n:
+    \left| \sum_{k=n+1}^m a_k \right| < \varepsilon
+\]
 
 \paragraph{Wurzelkriterium von Cauchy \brpage{474}}
 \[
     \alpha = \limsup_{n\to\infty} \sqrt[n]{\left| a_n \right|}
-    \qquad
-    \alpha < 1 \implies \text{ konvergent}
+    \implies\begin{cases}
+        \alpha < 1 \quad \text{(abs.) konvergent} \\
+        \alpha > 1 \quad \text{divergent}
+    \end{cases}
 \]
+Wenn \(\alpha = 1\)  man kann nicht direkt eine Konvergenz / Divergenz schliessen.
 
 \paragraph{Quotientenkriterium von d'Alambert \brpage{474}}
+\[
+    \alpha = \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|
+    \implies\begin{cases}
+        \alpha < 1 \quad \text{(abs.) konvergent} \\
+        \alpha > 1 \quad \text{divergent}
+    \end{cases}
+\]
 
-\paragraph{Leibniz'sches \brpage{476}}
+\paragraph{Leibniz'sches (f\"ur alternierenden Reihen) \brpage{476}}
+Wenn \(\langle a_n \rangle\) eine alterniende Folge ist, dann gilt
+\begin{gather*}
+    \langle |a_n| \rangle \text{ ist eine monoton fallende Nullfolge} \\
+    \implies \langle s_n \rangle \text{ konvergiert}
+\end{gather*}
 
 \paragraph{Integralkriterium \brpage{475}}
 Sei \(f(x) \geq 0\), \(x \in [1;\infty)\) und \(f\downarrow\). Merkt man dass:
 \[
-    S = \int\limits_1^n f(x) \dd{x} 
+    \overbrace{\int\limits_1^n f(x) \dd{x}}^{S} 
     \leq \sum_{k=1}^n a_k
-    \leq \int\limits_2^n f(x-1) \dd{x} = S
+    \leq \overbrace{\int\limits_2^n f(x-1) \dd{x}}^{\text{Auch } S}
 \]
 Somit folgt:
 \[
     \text{konvergiert } \int\limits_1^\infty f(x) \dd{x}
     \implies \text{konvergiert } s
 \]
+
+\subsection{Potenzreihen} \label{sec:powerseries}
+\[
+    P = \sum_{n=0}^\infty a_n x^n = a_0 + a_1 x + a_2 x^2 + \cdots
+\]
+Sei \(\lim_{n\to\infty} \sqrt{|a_n|} = a \) (Wurzelkriterium)
+\begin{align*}
+    a = 0 &\implies \text{ abs. konvergent} \\
+    a > 0 &\implies
+    \forall x \in \mathbb{R}:
+    \begin{cases}
+        |x| < 1/a: \text{ abs. konvergent} \\
+        |x| > 1/a: \text{ divergent}
+    \end{cases}
+\end{align*}
+\subsubsection{Konvergenzradius/bereich}
+Sei \(\langle \sqrt{|a_n|}\rangle\) nicht beschr\"ankt, so ist \(P\) nur f\"ur \(x=0\) konvergent.
 
 \begin{thebibliography}{3}
   \bibitem{hsr}
