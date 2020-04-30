@@ -5,6 +5,8 @@ Zusammenfassung der Vorlesung Analysis 2 fuer Elektrotechnik, Fruehlingssemester
 
 Inhalt
 ------
+
+### Analysis 2aE
 - Integrationsmethode
 - Uneigentliches Integral
   - Cauchy Hauptwert
@@ -21,6 +23,8 @@ Inhalt
     - Evoluten
   - Kurve 2. Ordnung - Kegelschnitt
   - Raumkurven
+  
+### Analysis 2bE
 - Reihen (WIP)
   - Arithmetische, Geometrische und Harmonische
   - Unendliche
