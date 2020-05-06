@@ -1,8 +1,6 @@
-\documentclass[a4paper, twocolumn]{article}
+\documentclass[margin=small, twocolumn]{hsrzf}
 
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{bm}
+\usepackage{hsrstud}
 
 \numberwithin{equation}{subsection}
 
@@ -14,7 +12,6 @@
 \usepackage{rotating}
 \usepackage{enumitem}
 
-\usepackage[margin=2cm, marginpar=0pt]{geometry}
 \usepackage{graphicx}
 \usepackage{xcolor}
 
@@ -23,21 +20,6 @@
     modifier={by-nc-sa},
     version={4.0},
 ]{doclicense}
-
-
-%\usepackage{showframe}
-
-%\usepackage{tikz}
-%\usepackage{tikz-3dplot}
-%\usepackage{pgfplots}
-%\pgfplotsset{compat=1.15}
-
-
-\usepackage[colorlinks = true,
-            linkcolor = red!50!black,
-            urlcolor  = blue,
-            citecolor = black,
-            anchorcolor = blue]{hyperref}
 
 
 \usepackage{polyglossia}
@@ -49,14 +31,11 @@
 \date{Fr\"uhlingsstemester 2020}
 
 
-\newcommand{\dd}[2][]{\ensuremath{~\mathrm{d}^{#1} #2}}
-\newcommand{\deriv}[3][]{\ensuremath{\frac{\dd[#1]{#2}}{\dd[]{#3^{#1}}}}}
-\newcommand{\pderiv}[3][]{\ensuremath{\frac{\partial^{#1} #2}{\partial^{#1} #3}}}
-\renewcommand{\vec}[1]{\ensuremath{\bm{#1}}}
-
 \newcommand{\brpage}[1]{\textcolor{red!70!black}{\small\texttt{S#1}}}
 
 \begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Integration \brpage{493,507}}
 \subsection{Tricks \brpage{495}}
@@ -66,15 +45,15 @@ Linearit\"at \brpage{495}
 \]
 Partialbruchzerlegung \brpage{15,498}
 \[
-    \int \frac{f(x)}{P_n(x)} \dd{x} = \sum_{k=1}^n \int \frac{A_k}{x-r_k}\dd{x}
+    \int \frac{f(x)}{P_n(x)} \di{x} = \sum_{k=1}^n \int \frac{A_k}{x-r_k}\di{x}
 \]
 Elementartransformation \brpage{496}
 \[
-    \int f(\lambda x + \ell) \dd{x} = \frac{1}{\lambda} F(\lambda x + \ell) + C
+    \int f(\lambda x + \ell) \di{x} = \frac{1}{\lambda} F(\lambda x + \ell) + C
 \]
 Partielle Integration \brpage{497}
 \[
-    \int u \dd{v} = uv - \int v \dd{u}
+    \int u \di{v} = uv - \int v \di{u}
 \]
 Potenzenregel \brpage{496}
 \[
@@ -87,7 +66,7 @@ Logaritmusregel \brpage{496}
 Allgemeine Substutution \brpage{497}\\
  \(x = g(u)\), und \(\dd{x} = g'(u)\dd{u}\)
 \[
-    \int f(x) \dd{x} = \int (f\circ g) ~ g' \dd{u} = \int \frac{f \circ g}{(g^{-1})'\circ g} \dd{u} 
+    \int f(x) \di{x} = \int (f\circ g) ~ g' \di{u} = \int \frac{f \circ g}{(g^{-1})'\circ g} \di{u} 
 \]
 Universalsubstitution \brpage{504}
 \begin{align*}
@@ -96,47 +75,49 @@ Universalsubstitution \brpage{504}
 \end{align*}
 Womit
 \[
-    \int f(\sin(x), \cos(x), \tan(x)) \dd{x} = \int g(t) \dd{t}
+    \int f(\sin(x), \cos(x), \tan(x)) \di{x} = \int g(t) \di{t}
 \]
 
 \subsection{Uneigentliches Integral \brpage{520}}
 \begin{align*}
-    \int\limits_a^\infty f \dd{x} &= \lim_{B \to \infty} \int\limits_a^B f \dd{x} \\
-    \int\limits_{-\infty}^b f \dd{x} &= \lim_{A \to -\infty} \int\limits_A^b f \dd{x} \\
-    \int\limits_{-\infty}^\infty f \dd{x} &= \lim_{\substack{A \to +\infty \\ B \to -\infty}} \int\limits_A^B f \dd{x}
+    \int\limits_a^\infty f \di{x} &= \lim_{B \to \infty} \int\limits_a^B f \di{x} \\
+    \int\limits_{-\infty}^b f \di{x} &= \lim_{A \to -\infty} \int\limits_A^b f \di{x} \\
+    \int\limits_{-\infty}^\infty f \di{x} &= \lim_{\substack{A \to +\infty \\ B \to -\infty}} \int\limits_A^B f \di{x}
 \end{align*}
 Wenn \(f\) im Punkt \(u \in (a,b)\) nicht definiert ist.
 \begin{equation} \label{eqn:int-with-pole}
-    \int\limits_a^b f \dd{x} = 
-    \lim_{\epsilon\to +0} \int\limits_a^{u-\epsilon} f \dd{x}
-    + \lim_{\delta\to +0} \int\limits_{u+\delta}^b f \dd{x}
+    \int\limits_a^b f \di{x} = 
+    \lim_{\epsilon\to +0} \int\limits_a^{u-\epsilon} f \di{x}
+    + \lim_{\delta\to +0} \int\limits_{u+\delta}^b f \di{x}
 \end{equation}
 
 \subsection{Cauchy Hauptwert \brpage{523}}
 Der C.H. (oder PV f\"ur \emph{Principal Value} auf Englisch) eines uneigentlichen Integrals ist der Wert, wenn in einem Integral wie \eqref{eqn:int-with-pole} beide Grenzwerte mit der gleiche Geschwindigkeit gegen 0 streben.
 \[
-    \text{C.H.} \int\limits_a^b f \dd{x} = 
-    \lim_{\epsilon\to +0} \left( \int\limits_a^{u-\epsilon} f \dd{x}
-    + \int\limits_{u+\epsilon}^b f \dd{x} \right)
+    \text{C.H.} \int\limits_a^b f \di{x} = 
+    \lim_{\epsilon\to +0} \left( \int\limits_a^{u-\epsilon} f \di{x}
+    + \int\limits_{u+\epsilon}^b f \di{x} \right)
 \]
 Zum Beispiel \(x^{-1}\) ist nicht \"uber \(\mathbb{R}\) integrierbar, wegen des Poles bei 0. Aber intuitiv wie die Symmetrie vorschlagt
 \[
-    \text{C.H.} \int\limits^\infty_{-\infty} \frac{1}{x} \dd{x} = 0
+    \text{C.H.} \int\limits^\infty_{-\infty} \frac{1}{x} \di{x} = 0
 \]
 
 \subsection{Majorant-, Minorantenprinzip und Konvergenzkriterien \brpage{521,473,479,481}}
 
 Gilt f\"ur die Funktionen \(0 < f(x) \leq g(x)\) mit \(x \in [a,\infty)\)
 \[
-    \text{konvergiert } \int\limits_a^\infty g \dd{x} 
-    \implies \text{ konvergiert } \int\limits_a^\infty f \dd{x}
+    \text{konvergiert } \int\limits_a^\infty g \di{x} 
+    \implies \text{ konvergiert } \int\limits_a^\infty f \di{x}
 \]
 Die selbe gilt umgekehrt f\"ur Divergenz. Wenn \(0 < h(x) \leq f(x)\) 
 \[
-    \text{divergiert } \int\limits_a^\infty h \dd{x} 
-    \implies \text{ divergiert } \int\limits_a^\infty f \dd{x}
+    \text{divergiert } \int\limits_a^\infty h \di{x} 
+    \implies \text{ divergiert } \int\limits_a^\infty f \di{x}
 \]
 \(g\) und \(h\) hei{\ss}en Majorant und Minorant bzw.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Implizite Ableitung \brpage{448}}
 \begin{alignat*}{3}
@@ -153,6 +134,7 @@ Allgemeiner f\"ur die implizite Funktion \(F(x,y) = 0\)
 	\pderiv{F}{x} + \pderiv{F}{y} y' = 0
 \]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Differentialgeometrie}
 \subsection{Ebene Kurven \brpage{250}}
@@ -191,8 +173,8 @@ Wenn \(\dot{\psi} \neq 0\) ist dann \(x = \phi \circ \psi^{-1}(y)\)
 \subsubsection{Bogenl\"ange \brpage{251,514}} \label{sec:arc-length}
 Weitere Formeln (z.B. polar) findet man in Tab. \ref{tab:plane-curves-big}.
 \[
-    \ell = \int\limits_a^b \sqrt{1 + (f')^2} \dd{x} 
-    = \int\limits_{t_0}^{t_1} |\vec{\dot{c}}| \dd{t}
+    \ell = \int\limits_a^b \sqrt{1 + (f')^2} \di{x} 
+    = \int\limits_{t_0}^{t_1} |\dot{\vec{c}}| \di{t}
 \]
 
 \subsubsection{Umparametrisierung nach Bogenl\"ange}
@@ -203,14 +185,14 @@ Sei die Kurve \(\vec{\Lambda}(t), t \in I\) mindestens einmal differenzierbar, u
 Die neue Parametrisierung hat \(\vec{\Lambda}' = 1\) (nach \(s\) differenziert), d.h. die erste Ableitung ist der tangent Einheitsvector!
 
 \subsubsection{Tangente und Normalvektor \brpage{251,252}}
-F\"ur eine ebene Kurve \(\vec{\Lambda}(t)\) \(\tau, t \in I\), der Vektor \(\vec{\dot\Lambda}(\tau)\) ist immer an \(\vec{\Lambda}(\tau)\) tangent. \(\vec{\ddot{\Lambda}}(\tau)\) ist zur Kurve normal.
+F\"ur eine ebene Kurve \(\vec{\Lambda}(t)\) \(\tau, t \in I\), der Vektor \(\dot{\vec\Lambda}(\tau)\) ist immer an \(\vec{\Lambda}(\tau)\) tangent. \(\ddot{\vec{\Lambda}}(\tau)\) ist zur Kurve normal.
 \begin{align*}
-    \vec{\dot{\Lambda}}
+    \dot{\vec{\Lambda}}
     &= \deriv{y}{x} 
     = \frac{\dot{y}}{\dot{x}} 
     = \frac{r'\sin\varphi + r\cos\varphi}{r'\cos\varphi - r\sin\varphi}
     \\[.9em]
-    \vec{\ddot{\Lambda}}
+    \ddot{\vec{\Lambda}}
     &= \deriv[2]{y}{x}
     = \frac{\ddot{y}\dot{x} - \ddot{x}\dot{y}}{\dot{x}^3}
 \end{align*}
@@ -237,7 +219,7 @@ Der Kr\"ummungskreis hat Ma{\ss}zahl \(\rho = 1/|\kappa|\) und Mittelpunkt \(P_c
     P_c = \begin{pmatrix} x_c \\ y_c \end{pmatrix} 
     = \begin{pmatrix} x \\ y \end{pmatrix} + \frac{1}{\kappa} \vec{\hat{n}}
 \]
-Wobei \(\vec{\hat{n}} = \vec{\ddot{\Lambda}}^0\) ist der Normalvektor.
+Wobei \(\uvec{n} = \vec{\ddot{\Lambda}}^0\) ist der Normalvektor.
 
 \subsubsection{Konvexit\"at}
 Sei die Kurve \(\Lambda\) durch \(f \in C^2\) auf \([a,b]\) gegeben.
@@ -314,6 +296,8 @@ Der parameter \(\varepsilon\) \"andert die Gestalt folgendermaßen
 \[
     r = a \sqrt{2\cos(2\varphi)}
 \]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Reihen}
 \subsection{Bemerkenswerte Rehien \brpage{19,477}}
@@ -415,10 +399,11 @@ Somit folgt:
     \implies \text{konvergiert } s
 \]
 
-\subsection{Potenzreihen} \label{sec:powerseries}
-\[
-    P = \sum_{n=0}^\infty a_n x^n = a_0 + a_1 x + a_2 x^2 + \cdots
-\]
+\subsection{Potenzreihen \brpage{482}} \label{sec:powerseries}
+\begin{align*}
+    P &= \sum_{n=0}^\infty a_n (x - x_0)^n \\
+      &= a_0 + a_1 (x - x_0) + a_2 (x - x_0)^2 + \cdots
+\end{align*}
 Sei \(\lim_{n\to\infty} \sqrt{|a_n|} = a \) (Wurzelkriterium)
 \begin{align*}
     a = 0 &\implies \text{ abs. konvergent} \\
@@ -429,8 +414,84 @@ Sei \(\lim_{n\to\infty} \sqrt{|a_n|} = a \) (Wurzelkriterium)
         |x| > 1/a: \text{ divergent}
     \end{cases}
 \end{align*}
-\subsubsection{Konvergenzradius/bereich}
-Sei \(\langle \sqrt{|a_n|}\rangle\) nicht beschr\"ankt, so ist \(P\) nur f\"ur \(x=0\) konvergent.
+
+\subsubsection{Konvergenzradius/-bereich \brpage{482}}
+Sei \(\langle \sqrt{|a_n|}\rangle\) nicht beschr\"ankt (\(a = \infty\)), so ist \(P\) nur f\"ur \(x=x_0\) konvergent (\(r = 1/\infty = 0^+\)). Sonst existiert der \emph{Konvergenzradius} \(r \in\mathbb{R}^+\):
+\begin{align*}
+    r &= \limsup_{n\to\infty} \left| \frac{a_n}{a_{n+1}} \right| &
+    r &= \left( \limsup_{n\to\infty} \sqrt[n]{| a_n |} \right)^{-1}
+\end{align*}
+Innerhalb des \emph{Konvergenzbereiches} \(\{ x : |x - x_0| < r\} = (x_0-r; x_0+r)\) ist die Reihe absolut konvergent, ausserhalb dessen ist sie divergent.
+Wenn \(r = \infty\) dann ist die Reihe abs. konvergent.
+
+\subsubsection{Funktion darstellen}
+
+\subsubsection{Ableitung und Integration}
+Sei \(P\) eine Potenzreihe mit dem Konvergenzradius \(r > 0\), die eine Funktion \(f\) darstellt. Innerhalb des Konvergenzradius gilt:
+\begin{align*}
+    f'(x) &= \left(\sum_{n=0}^\infty a_n x^n \right)' 
+        = \sum_{n=1}^\infty n a_n x^{n-1} \\
+    \int f \di{x} &= \int \sum_{n=0}^\infty a_n x^n \di{x}
+        = \sum_{n=0}^\infty \frac{a_n}{n+1} x^{n+1} + C
+\end{align*}
+H\"ohere Ableitungen:
+\[
+    f^{(k)}(x) = \left(\sum_{n=0}^\infty a_n x^n \right)^{(k)} 
+    = \sum_{n=k}^\infty \frac{n!}{(n-k)!} a_n x^{n-k}
+\]
+
+\subsubsection{Taylor Polynom und Reihe \brpage{484}}
+Der Taylor-Polynom approximiert eine Funktion um einen Entwicklungspunkt \(a\).
+\begin{align*}
+  T_n(x, a) &= \sum_{k=0}^n\frac{f^{(k)}(a)}{k!}(x-a)^k + R_n\\
+  &= f(a) + \frac{f'(a)}{1!}(x-a)^1 + \frac{f''(a)}{2!}(x-a)^2 + \cdots
+\end{align*}
+Die Restgliede sind
+\begin{align*}
+  R_n = \frac{f^{(n+1)}(\xi)}{(n+1)!} (x-a)^{(n+1)} \qquad (\xi \in (x;a))
+\end{align*}
+Wenn \(\lim_{n\to\infty}R_n = 0\) dann \(f(x) = T(x,a)\), d.h. die Taylor Rehie zu \(f\) identisch ist (Konvergenzradius \(r = \infty\)). Sonst berechnet man der \emph{worst case} Fehler \(\epsilon \geq |R_n|\) und der dazugeh\"orig \(\hat{\xi} = \underset{\xi}{\arg}\max|R_n|\):
+\begin{align*}
+  \epsilon
+  = \max |R_n|
+  = \max \left[\frac{|f^{(n+1)}(\xi)|}{(n+1)!} |x-a|^{(n+1)}\right]
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Differentialgleichungen}
+\subsection{Definition}
+Eine Funktion \(y = \varphi(x)\) hei{\ss}t L\"osung der \(n\)-te Ordnung Differentialgleichung
+\[
+    F(x, y, y', y'', \dots, y^{(n)}) = 0
+\]
+auf dem Intervall \(I\), wenn
+\begin{itemize}
+    \item \(\varphi\) auf \(I\) \(n\)-mal differenzierbar ist
+    \item \(\forall x \in I: F(x, \varphi, \varphi', \varphi'', \dots, \varphi^{(n)}) = 0\)
+\end{itemize}
+
+Gegeben seien auch der \emph{Anfangspunkt}
+\(x_0\), und
+die \emph{Anfangswerte} oder \emph{Anfangsbedingungen}
+\(y_0 = y(x_0)\),
+\(y_1 = y'(x_0)\),
+\dots,
+\(y_{n-1} = y^{(n-1)}(x_0) \in \mathbb{R}\).
+Dann hat man ein \emph{Anfangswertproblem}, der eine \emph{spezifische} L\"osung ergibt.
+
+\subsection{DGL 1. Ordnung}
+Sei \(y' = f(x, y)\)
+
+\paragraph{Separation} Wenn die DGL die Form \(y' = g(y) f(x)\) hat, dann l\"asst sie sich mit der Umformung
+\begin{gather*}
+    \frac{y'}{g(y)} = f(x) \implies \int \frac{\dd{y}}{g(y)} = \int f(x) \di{x} \\
+    y = k
+\end{gather*}
+
+
+\subsection{DGL 2. Ordnung}
+
 
 \begin{thebibliography}{3}
   \bibitem{hsr}
@@ -487,31 +548,31 @@ Anstieg \brpage{448}
     & \dot{x}/\dot{y}
 \\
 Fl\"ache \brpage{493}
-    & \int\limits_a^b |f(x)| \dd{x}
-    & \frac{1}{2}\int\limits_\alpha^\beta r(\varphi)^2 \dd{\varphi}
-    & \frac{1}{2}\int\limits_{t_0}^{t_1} x\dot{y} - \dot{x}y \dd{t} = \frac{1}{2}\int\limits_{t_0}^{t_1}\det(\vec{c},\dot{\vec{c}}) \dd{t}
+    & \int\limits_a^b |f(x)| \di{x}
+    & \frac{1}{2}\int\limits_\alpha^\beta r(\varphi)^2 \di{\varphi}
+    & \frac{1}{2}\int\limits_{t_0}^{t_1} x\dot{y} - \dot{x}y \di{t} = \frac{1}{2}\int\limits_{t_0}^{t_1}\det(\vec{c},\dot{\vec{c}}) \di{t}
 \\
 Bogenl\"ange \brpage{251,514}
-    & \int\limits_a^b \sqrt{1 + (f')^2} \dd{x}
-    & \int\limits_\alpha^\beta \sqrt{(r')^2 + r^2} \dd{\varphi}
-    & \int\limits_{t_0}^{t_1} \sqrt{\dot{x}^2 + \dot{y}^2} \dd{t} = \int\limits_{t_0}^{t_1} |\vec{\dot{c}}| \dd{t}
+    & \int\limits_a^b \sqrt{1 + (f')^2} \di{x}
+    & \int\limits_\alpha^\beta \sqrt{(r')^2 + r^2} \di{\varphi}
+    & \int\limits_{t_0}^{t_1} \sqrt{\dot{x}^2 + \dot{y}^2} \di{t} = \int\limits_{t_0}^{t_1} |\dot{\vec{c}}| \di{t}
 \\
 Kr\"ummung \(\kappa\) \brpage{254}
     & \frac{f''}{\sqrt{1+(f')^2}^3}
     & \frac{2(r')^2 - r r'' + r^2}{\sqrt{r^2 + (r')^2}^3}
     & \frac{\ddot{y}\dot{x} - \ddot{x}\dot{y}}{\sqrt{\dot{x}^2 + \dot{y}^2}^3} 
-    = \frac{\det(\vec{\dot{c}},\vec{\ddot{c}})}{|\vec{\dot{c}}|^3}
+    = \frac{\det(\dot{\vec{c}},\ddot{\vec{c}})}{|\dot{\vec{c}}|^3}
 \\[1em]
 \midrule
 Rotationsvolumen um \(x\) \brpage{516}
-    & \pi \left|\int\limits_a^b y^2 \dd{x} \right|
-    & \pi \left|\int\limits_{t_0}^{t_1} y \dot{x} \dd{t} \right|
-    & \pi \left|\int\limits_\alpha^\beta r^2 \sin^2 \varphi (r'\cos\varphi - r\sin\varphi) \dd{\varphi} \right|
+    & \pi \left|\int\limits_a^b y^2 \di{x} \right|
+    & \pi \left|\int\limits_{t_0}^{t_1} y \dot{x} \di{t} \right|
+    & \pi \left|\int\limits_\alpha^\beta r^2 \sin^2 \varphi (r'\cos\varphi - r\sin\varphi) \di{\varphi} \right|
 \\
 Rotationsoberfl\"ache um \(x\) \brpage{515}
-    & 2\pi \int\limits_a^b |y| \sqrt{1 + (y')^2} \dd{x}
-    & 2\pi \int\limits_\alpha^\beta |r\sin(\varphi)| \sqrt{(r')^2 + r^2} \dd{\varphi}
-    & 2\pi \int\limits_{t_0}^{t_1} |y| \sqrt{\dot{x}^2 + \dot{y}^2} \dd{t}
+    & 2\pi \int\limits_a^b |y| \sqrt{1 + (y')^2} \di{x}
+    & 2\pi \int\limits_\alpha^\beta |r\sin(\varphi)| \sqrt{(r')^2 + r^2} \di{\varphi}
+    & 2\pi \int\limits_{t_0}^{t_1} |y| \sqrt{\dot{x}^2 + \dot{y}^2} \di{t}
 \\
 % Rotationsvolumen um \(y\) \\
 % Rotationsoberfl\"ache um \(y\) \\
