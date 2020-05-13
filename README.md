@@ -22,17 +22,27 @@ Inhalt
     - Konvexitaet
     - Evoluten
   - Kurve 2. Ordnung - Kegelschnitt
-  - Raumkurven
+  - Kurve 4. Ordnung
   
 ### Analysis 2bE
-- Reihen (WIP)
+- Reihen
   - Arithmetische, Geometrische und Harmonische
   - Unendliche
     - Absolut, bedingt, unbedigt konvergent bzw. divergent
     - Konvergenzkriterien
+      - Cauchy'sches
+      - Wurzelkriterium
+      - Quotientenkriterium
+      - Leibniz'sches
+      - Integralkgriterum
   - Potenzenreihen
     - Konvergenzradius / Bereich
+    - Funktionen darstellen
     - Ableitung / Integration
+    - Taylor Reihe  
+- Differenzialgleichungen
+  - Lineare DGL 1. Ordnung
+    
 
 License (CC BY-SA)
 ---------------
