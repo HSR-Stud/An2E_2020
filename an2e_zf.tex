@@ -493,7 +493,7 @@ hei{\ss}t \emph{homogen}, wenn \(g\) die Nullfunktion (\(=0\)) auf \(I\) ist, so
 \end{gather*}
 Ein Speziallfall \(g(y) = y\) hat die allgemeine L\"osung
 \[
-    y = k\exp\left(\int f(x) \di{x} \right) = k \nemathit{e}^{F}
+    y = k\exp\left(\int f(x) \di{x} \right) = k \mathit{e}^{F}
 \]
 
 \paragraph{Substitution Linearterm} Hat die DGL die Form \(y' = f(ax + by + c)\), dann benutzt man die Substitution
@@ -503,13 +503,33 @@ Ein Speziallfall \(g(y) = y\) hat die allgemeine L\"osung
 \end{align*}
 Dann soll sie nach \(z\) l\"osen lassen.
 
-\paragraph{Glaichgradigkeit} Hat die DGL die Form \(y' = f(y/x) \quad x \neq 0\), dann benutzt die Substitution
+\paragraph{Gleichgradigkeit} Hat die DGL die Form \(y' = f(y/x) \quad x \neq 0\), dann benutzt die Substitution
 \begin{align*}
     z = y/x &\implies y' = z'x + z \\
     &\implies z' = \frac{1}{x}\left(y'(x) - z\right) \quad\text{separiert!}
 \end{align*}
 
 \subsection{DGL 2. Ordnung}
+
+\subsubsection{Lineare DGL 2. Ordnung}
+\[
+    y'' + a_1 y' + a_0 y = f(x)
+\]
+Versuch mit \(y = Ae^{\lambda x}\)
+\begin{align*}
+    0 &= A\lambda^2 e^{\lambda x} + a_1 A \lambda e^{\lambda x} + a_0 A e^{\lambda x} \\
+    0 &= \lambda^2 + a_1\lambda + a_0
+\end{align*}
+Der \emph{charakteristische Polynom} hat die L\"osungen
+\[
+    \lambda_{12} = \frac{1}{2}\left(-a_1 \pm \sqrt{a_1^2 - 4a_0}\right)
+\]
+Falls \(\lambda \in \mathbb{R}\), dann hei{\ss}t er \emph{D\"ampfung}. Sonst ist \(\mathbb{C} \ni \lambda = k \pm\jmath\alpha\), \(\alpha\) nennt man \emph{Frequenz}. Daher hat die L\"osung die Form:
+\[
+    Ce^{k\pm\jmath\alpha} 
+    = A\exp\left(\frac{a_1}{2}x\right)\cos(\alpha x)
+    + B\exp\left(\frac{a_1}{2}x\right)\sin(\alpha x)
+\]
 
 
 \begin{thebibliography}{3}
