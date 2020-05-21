@@ -246,7 +246,11 @@ Die Polarform f\"ur die allgemeine Gleichung der Kurver 2. Ordnung ist
 \begin{equation} \label{eqn:conics-polar}
     r = \frac{p}{1 + \varepsilon \cos\varphi}
 \end{equation}
-Der parameter \(\varepsilon\) \"andert die Gestalt folgendermaßen
+Im kartesiche Form
+\begin{equation} \label{eqn:conics-cartesian}
+    \frac{x^2}{a} + \frac{y^2}{b} = 0
+\end{equation}
+Die Parameter \(a,b\) bzw, \(\varepsilon\) \"andern die Gestalt folgendermaßen
 \begin{multicols}{2}
 \begin{itemize}
     \item \(\varepsilon = 0\) Kreis
@@ -289,7 +293,7 @@ Der parameter \(\varepsilon\) \"andert die Gestalt folgendermaßen
 \subsection{Kurven 4. Ordnung \brpage{98}}
 \paragraph{Kardioide / Herzkurve \brpage{99,100}}
 \[
-    r = a(1 + cos\varphi)
+    r = a(1 + \cos\varphi)
 \]
 
 \paragraph{Lemniskate \brpage{101}}
@@ -481,25 +485,28 @@ die \emph{Anfangswerte} oder \emph{Anfangsbedingungen}
 Dann hat man ein \emph{Anfangswertproblem}, der eine \emph{spezifische} L\"osung ergibt.
 
 \subsection{DGL 1. Ordnung}
+\subsubsection{Lineare DGL 1. Ordnung}
 Die funktionen \(f\) und \(g\) seien auf demselben Intervall \(I\) stetig. Die Differentialgleichung
 \[
     y' + f(x)y = g(x)
 \]
 hei{\ss}t \emph{homogen}, wenn \(g\) die Nullfunktion (\(=0\)) auf \(I\) ist, sonst \emph{inhomogen}. \(g\) hei{\ss}t St\"orglied.
 
-\paragraph{Separation} Wenn die DGL die Form \(y' = g(y) f(x)\) hat, dann l\"asst sie sich mit der Umformung
-\begin{gather*}
-    \frac{y'}{g(y)} = f(x) \implies \int \frac{\dd{y}}{g(y)} = \int f(x) \di{x} \\
-\end{gather*}
-Ein Speziallfall \(g(y) = y\) hat die allgemeine L\"osung
+\subsubsection{Tricks}
+
+\paragraph{Separation} Wenn die DGL die Form \(y' + f(x) p(y) = 0\) hat, dann l\"asst sie sich mit der Umformung
 \[
-    y = k\exp\left(\int f(x) \di{x} \right) = k \nemathit{e}^{F}
+    \frac{y'}{p(y)} = -f(x) \implies \int \frac{\dd{y}}{p(y)} = - \int f(x) \di{x}
+\]
+Ein Speziallfall \(p(y) = y\) (homogen lineare DGL) hat die allgemeine L\"osung
+\[
+    y = k\exp\left[-\int f(x) \di{x} \right] = k{ e}^{-F}
 \]
 
 \paragraph{Substitution Linearterm} Hat die DGL die Form \(y' = f(ax + by + c)\), dann benutzt man die Substitution
 \begin{align*}
     z  &= ax + by + c \iff y(z) = b(z-c)/ax \\
-    z' &= a + by' \implies z' = a + b y'(z) \text{ separiert!}
+    z' &= a + by' \implies z' = a + b y'(z) \quad\text{separiert!}
 \end{align*}
 Dann soll sie nach \(z\) l\"osen lassen.
 
@@ -508,6 +515,8 @@ Dann soll sie nach \(z\) l\"osen lassen.
     z = y/x &\implies y' = z'x + z \\
     &\implies z' = \frac{1}{x}\left(y'(x) - z\right) \quad\text{separiert!}
 \end{align*}
+
+
 
 \subsection{DGL 2. Ordnung}
 
