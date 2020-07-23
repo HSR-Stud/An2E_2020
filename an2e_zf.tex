@@ -311,18 +311,19 @@ Sei \(a_1 \in \mathbb{R}\) und \(d \in \mathbb{R} \setminus \{0\}\), dann aus de
     A_n &= a_1 + \sum_{k=1}^n (k-1)d = a_1 + d + 2d + \cdots + (n-1)d\\
     &= \frac{n}{2}\big( 2a_1 + (n-1)d\big) = \frac{n}{2}(a_1 + a_n)
 \end{align*}
-    
+
 \paragraph{Geometrische Reihe}
 Sei \(a_1 \in \mathbb{R}\) und \(q \in \mathbb{R} \setminus \{0;1\}\). Aus der geometrischen Folge \(\langle g_k \rangle\) mit \(g_k = a_1 q^k\) erh\"alt man die Reihe \(\langle G_n \rangle\) mit:
 \[
     G_n = a_1 \sum_{k=1}^n q^{k-1} = a_1 \frac{1-q^n}{1-q}
 \]
-    
+
 \paragraph{Harmonische Reihe}
 Aus der folge \(\langle h_k \rangle\) mit \(h_k = 1/k\) erh\"alt man die Reihe \(\langle H_n \rangle\) mit:
 \[
     H_n = \sum_{k=1}^n = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n}
 \]
+Achtung: \(H = \lim_{n\to\infty} H_n\) konvergiert nicht!
 
 \paragraph{Potenzreihe} Siehe \S\ref{sec:powerseries}
 
@@ -413,6 +414,8 @@ Somit folgt:
     \implies \text{konvergiert } s
 \]
 
+\paragraph{Majorantenkriterium} 
+
 \subsection{Potenzreihen \brpage{482}} \label{sec:powerseries}
 \begin{align*}
     P &= \sum_{n=0}^\infty a_n (x - x_0)^n \\
@@ -438,7 +441,11 @@ Sei \(\langle \sqrt{|a_n|}\rangle\) nicht beschr\"ankt (\(a = \infty\)), so ist 
 Innerhalb des \emph{Konvergenzbereiches} \(\{ x : |x - x_0| < r\} = (x_0-r; x_0+r)\) ist die Reihe absolut konvergent, ausserhalb dessen ist sie divergent.
 Wenn \(r = \infty\) dann ist die Reihe abs. konvergent.
 
-\subsubsection{Funktion darstellen}
+\subsubsection{Funktion darstellen \brpage{763}}
+Weil innerhalb des Konvergezbereiches die Reihe absolut konvergent ist, muss im Bereich \((x_0 - r; x_0 + r)\) eine stetige Funktion \(f(x) = \sum_{n=0}^{\infty} a_n (x - x_0)^n\) existieren, die gleichm\"assig zu einer anderen Funktion konvergieren (und somit sie darstellen) kann.
+
+Wenn eine Funktion \(g: E \subseteq \mathbb{R} \to \mathbb{R}\) in \((x_0 - r; x_0 + r) = B \subseteq E\) mit einer Potenzreihe dargestellt werden kann, dann sagt man \(g\) ist \emph{im Gebiet \(B\) reell analytisch}.
+
 
 \subsubsection{Ableitung und Integration}
 Sei \(P\) eine Potenzreihe mit dem Konvergenzradius \(r > 0\), die eine Funktion \(f\) darstellt. Innerhalb des Konvergenzradius gilt:
@@ -454,7 +461,7 @@ H\"ohere Ableitungen:
     = \sum_{n=k}^\infty \frac{n!}{(n-k)!} a_n x^{n-k}
 \]
 
-\subsubsection{Taylor Polynom und Reihe \brpage{484}}
+\subsubsection{Taylor Polynom und Reihe \brpage{484,765}}
 Der Taylor-Polynom approximiert eine Funktion um einen Entwicklungspunkt \(a\).
 \begin{align*}
   T_n(x, a) &= \sum_{k=0}^n\frac{f^{(k)}(a)}{k!}(x-a)^k + R_n\\
@@ -473,7 +480,7 @@ Wenn \(\lim_{n\to\infty}R_n = 0\) dann \(f(x) = T(x,a)\), d.h. die Taylor Rehie 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Differentialgleichungen}
+\section{Differentialgleichungen \brpage{553}}
 \subsection{Definition}
 Eine Funktion \(y = \varphi(x)\) hei{\ss}t \emph{allgemeine} L\"osung der \(n\)-te Ordnung Differentialgleichung
 \[
@@ -485,8 +492,7 @@ auf dem Intervall \(I\), wenn
     \item \(\forall x \in I: F(x, \varphi, \varphi', \varphi'', \dots, \varphi^{(n)}) = 0\)
 \end{itemize}
 
-Gegeben seien auch der \emph{Anfangspunkt}
-\(x_0\), und
+Gegeben seien auch der \emph{Anfangspunkt} \(x_0\), und
 die \emph{Anfangswerte} oder \emph{Anfangsbedingungen}
 \(y_0 = y(x_0)\),
 \(y_1 = y'(x_0)\),
@@ -494,8 +500,10 @@ die \emph{Anfangswerte} oder \emph{Anfangsbedingungen}
 \(y_{n-1} = y^{(n-1)}(x_0) \in \mathbb{R}\).
 Dann hat man ein \emph{Anfangswertproblem}, der eine \emph{partikul\"are} L\"osung ergibt.
 
-\subsection{DGL 1. Ordnung}
-\subsubsection{Lineare DGL 1. Ordnung}
+\subsection{Existenz und Eindeutigkeitssatz}
+
+\subsection{DGL 1. Ordnung \brpage{554}}
+\subsubsection{Lineare DGL 1. Ordnung \brpage{556}}
 Die funktionen \(f\) und \(g\) seien auf demselben Intervall \(I\) stetig. Die Differentialgleichung
 \[
     y' + f(x)y = g(x)
@@ -571,6 +579,8 @@ Die Faltung Integral ergibt die partikul\"are Loesung einer 2. Ordunung Differen
 
 \subsection{Lineare DGL \(n\)-te Ordnung}
 
+\subsection{Orthogonale Trajektorien}
+
 
 \begin{thebibliography}{3}
   \bibitem{hsr}
@@ -587,7 +597,13 @@ Die Faltung Integral ergibt die partikul\"are Loesung einer 2. Ordunung Differen
     \textit{Albert Fetzer, Heiner Fränkel},
     \texttt{ISBN-10 364224114X},
     \texttt{ISBN-13 9783642241147}
-    
+  \bibitem{terrytao}
+    Analysis II,
+    Third Edition 2017 (Jan. 2006),
+    Hindustan Book Agency,
+    \textit{Terence Tao},
+    \texttt{ISBN-10 818593195X},
+    \texttt{ISBN-13 978-8185931951}
 \end{thebibliography}
 
 \section*{Notation}
