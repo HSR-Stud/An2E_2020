@@ -1,6 +1,7 @@
 \documentclass[margin=small, twocolumn]{hsrzf}
 
 \usepackage{hsrstud}
+\usepackage{cancel}
 
 \numberwithin{equation}{subsection}
 
@@ -129,9 +130,9 @@ Die selbe gilt umgekehrt f\"ur Divergenz. Wenn \(0 < h(x) \leq f(x)\)
 Alle normale differenziazionsregeln f\"ur \(f(x)\) gelten.
 Allgemeiner f\"ur die implizite Funktion \(F(x,y) = 0\)
 \[
- 	\dd{y} = y'\dd{x}
-	\qquad
-	\pderiv{F}{x} + \pderiv{F}{y} y' = 0
+    \dd{y} = y'\dd{x}
+    \qquad
+    \pderiv{F}{x} + \pderiv{F}{y} y' = 0
 \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -482,7 +483,7 @@ Wenn \(\lim_{n\to\infty}R_n = 0\) dann \(f(x) = T(x,a)\), d.h. die Taylor Rehie 
 
 \section{Differentialgleichungen \brpage{553}}
 \subsection{Definition}
-Eine Funktion \(y = \varphi(x)\) hei{\ss}t \emph{allgemeine} L\"osung der \(n\)-te Ordnung Differentialgleichung
+Eine Funktion \(y = \varphi(x)\) hei{\ss}t \emph{allgemeine} L\"osung der implizite \(n\)-te Ordnung Differentialgleichung
 \[
     F(x, y, y', y'', \dots, y^{(n)}) = 0
 \]
@@ -492,32 +493,74 @@ auf dem Intervall \(I\), wenn
     \item \(\forall x \in I: F(x, \varphi, \varphi', \varphi'', \dots, \varphi^{(n)}) = 0\)
 \end{itemize}
 
-Gegeben seien auch der \emph{Anfangspunkt} \(x_0\), und
+Da mehr L\"osungen existieren k\"onnen, es gibt eine Menge von L\"osungen
+\[
+    Y = \left\{ y \in C^n : F(x, y, y', \dots, y^{(n)}) = 0 \right\}
+\]
+
+Gegeben seien k\"onnen auch der \emph{Anfangspunkt} \(x_0\), und
 die \emph{Anfangswerte} oder \emph{Anfangsbedingungen}
 \(y_0 = y(x_0)\),
 \(y_1 = y'(x_0)\),
 \dots,
 \(y_{n-1} = y^{(n-1)}(x_0) \in \mathbb{R}\).
-Dann hat man ein \emph{Anfangswertproblem}, der eine \emph{partikul\"are} L\"osung ergibt.
+Dann hat man ein \emph{Anfangswertproblem}, die eine L\"osung \(y \in Y\) ergibt.
 
-\subsection{Existenz und Eindeutigkeitssatz}
+
+\subsection{Existenz und Eindeutigkeitssatz (Picard-Lindel\"of) \brpage{554,556,560}}
+Sei die DGL folgenderm\"a{\ss}en umgeformt
+\[
+    y^{(n)} = f(x, y, y', \dots, y^{(n-1)})
+\]
+Dann hat die DGL eine eindeutige L\"osung, wenn
+\[
+    \exists
+    \frac{\partial f}{\partial x}(x_0) \text{ stetig}
+    \quad
+    \exists
+    \frac{\partial f}{\partial y^{(k)}}(y_{k}) \text{ stetig} \quad 0 \leq  k < n
+\]
+d.h. die partielle Ableitung nach \(x, y, y', \cdots\) an der Anfangswerte \(x_0, y_0, y_1, \ldots\) existieren und stetig sind.
+
+\subsection{Lineare DGL}
+Linearit\"at hei{\ss}t
+\[
+    L(y + z) = L(y) + L(z) \qquad L(\mu y) = \mu L(y)
+\]
+Wenn \(u_1(x), u_2(x), \ldots  \in Y\), eine lineare DGL \(L(y) = 0\) l\"osen d.h. \(L(u_k) = 0\). Dann sind auch alle lineare Kombinationen L\"osungen
+\[
+    \overbrace{\mu_1 L(u_1)}^{\mu_1 \cdot 0} + \mu_2 L(u_2) + \cdots = 0 =
+    L(\overbrace{\mu_1 u_1 + \mu_2 u_2 + \cdots}^{\text{lineare Komb.}})
+\]
+
+\subsubsection{Homogene, inhomogene und partikul\"are L\"osungen}
+Seien \(g(x)\) und alle \(a_k(x) \; (0 \leq  k \leq  n)\) auf den Intervall \(I\) stetig. F\"ur die lineare Differenzialgleichung
+\[
+    L(y) = \sum_{k=0}^n a_k y^{(k)} = g(x)
+\]
+\begin{itemize}
+    \item Wenn \(g(x) = 0\), hei{\ss}en sie und seine L\"osungen \emph{homogen}
+        \(\iff  y_H \in Y_H : L(y_H) = 0\).
+    \item Wenn \(g(x) \neq 0\), dann hei{\ss}en seine L\"osungen \emph{partikul\"are} L\"osungen
+        \(\iff y_P \in Y_p : L(y_p) = g(x)\).
+    \item Wegen Linearit\"at, die Summe von \(\mu y_H \text{ und } y_p\) sind wieder L\"osungen der DGL. Solche L\"osungen nennt man \emph{allgemeine} L\"osungen. \(\iff\)
+        \begin{align*}
+            y_H + y_p = y \in Y : L(y) &= L(y_H + y_p) \\
+            &= L(y_H) + L(y_p) \\
+            &= L(y_p) \\
+            &= g(x)
+        \end{align*}
+        Der L\"osungsmenge ist dann
+        \[Y = \{y_H \in Y_H, y_p \in Y_p: y = y_H + y_p\}\]
+
+\end{itemize}
+
 
 \subsection{DGL 1. Ordnung \brpage{554}}
 \subsubsection{Lineare DGL 1. Ordnung \brpage{556}}
-Die funktionen \(f\) und \(g\) seien auf demselben Intervall \(I\) stetig. Die Differentialgleichung
-\[
-    y' + f(x)y = g(x)
-\]
-hei{\ss}t \emph{homogen}, wenn \(g\) die Nullfunktion (\(=0\)) auf \(I\) ist, sonst \emph{inhomogen}. \(g\) hei{\ss}t St\"orglied.
 Die Allgemeine L\"osung ist
-% \[
-%     y = \exp\left[-\int f(x)\di{x}\right] \left[
-%         k + \int g(x)\exp\left(
-%             \int f(x)\di{x}
-%         \right)\di{x} \right] \\
-% \]
 \[
-    Y = \left\{ y : y = y_\text{H} + y_\text{P} \text{ mit } y_\text{H} \in Y_\text{H}\right\}
+    Y = \left\{ y_H \in Y_H : y = y_H + y_P \}
 \]
 \[
     y = e^{-F}\left[k + \int ge^F\di{x}\right]
@@ -549,27 +592,36 @@ Dann soll sie nach \(z\) l\"osen lassen.
 \end{align*}
 
 
-\subsection{DGL 2. Ordnung}
-
-\subsubsection{Lineare DGL 2. Ordnung mit konstanten Koeffizienten}
+\subsection{Lineare DGL 2. Ordnung mit konstanten Koeffizienten \brpage{569}}
 \[
-    y'' + a_1 y' + a_0 y = f(x)
+    L(y) = y'' + a_1 y' + a_0 y = g(x)
 \]
-Versuch mit \(y = Ae^{\lambda x}\)
+
+\subsubsection{Homogene L\"osung (\(g=0\))}
+Sei angenommen dass \(y = Ce^{\lambda x}\) eine L\"osung ist
 \begin{align*}
-    0 &= A\lambda^2 e^{\lambda x} + a_1 A \lambda e^{\lambda x} + a_0 A e^{\lambda x} \\
+    0 &= C\lambda^2 e^{\lambda x} + a_1 C \lambda e^{\lambda x} + a_0 C e^{\lambda x} \\
     0 &= \lambda^2 + a_1\lambda + a_0
 \end{align*}
 Der \emph{charakteristische Polynom} hat die L\"osungen
 \[
     \lambda_{12} = \frac{1}{2}\left(-a_1 \pm \sqrt{a_1^2 - 4a_0}\right)
 \]
-Falls \(\lambda \in \mathbb{R}\), dann hei{\ss}t er \emph{D\"ampfung}. Sonst ist \(\mathbb{C} \ni \lambda = k \pm\jmath\alpha\), \(\alpha\) nennt man \emph{Frequenz}. Daher hat die L\"osung die Form:
+Die homogene L\"osung ist dann
+\[
+    y_H = Ae^{\lambda_1 x} + Be^{\lambda_2 x} \quad A,B \in\mathbb{R}
+\]
+Falls \(\lambda \in \mathbb{R}\), dann hei{\ss}t er \emph{D\"ampfung}. Sonst ist \(\mathbb{C} \ni \lambda = k \pm j\alpha\), \(\alpha\) nennt man \emph{Frequenz}. Daher hat die L\"osung die Form:
 \[
     Ce^{k\pm\jmath\alpha} 
     = A\exp\left(\frac{a_1}{2}x\right)\cos(\alpha x)
     + B\exp\left(\frac{a_1}{2}x\right)\sin(\alpha x)
 \]
+
+\subsubsection{Inhomogene L\"osung (\(g \neq 0\))}
+NB: L\"osungsmethoden f\"ur \(n\)-te Ordnung DGL in \S\ref{sec:inhom-ode-n} k\"onne auch verwendet werden.
+
+\paragraph{Methode der unbestimmten Koeffizienten}
 
 \paragraph{Faltung}
 Die Faltung Integral ergibt die partikul\"are Loesung einer 2. Ordunung Differenzialgleichung mit Anfangsbedingungen \(g(x_0) = 0\) und \(g'(x_0) = 1\).
@@ -577,10 +629,30 @@ Die Faltung Integral ergibt die partikul\"are Loesung einer 2. Ordunung Differen
     y_p = f * g = \int\limits_{x_0}^x g(x + x_0 - t) f(t) \di{t}
 \]
 
-\subsection{Lineare DGL \(n\)-te Ordnung}
+\subsection{Lineare DGL \(n\)-te Ordnung mit konstanten Koeffizienten \brpage{569,567}}
+\subsubsection{Homogene L\"osung}
+Sei angenommen dass, die L\"osungen Form \(y = Ce^{\lambda x}\) haben, dann
+\[
+    \sum_{k=0}^n a_k y^{(k)} = 0 
+    \implies p(\lambda) = \sum_{k=0}^n a_k \lambda^k = 0
+\]
+die Nullstellen von \(p(\lambda)\) ergeben \(n\) L\"osungen \(C_ke^{\lambda_k x}\).
+Wie schon diskutiert, alle lineare Kombinationen sind wieder L\"osungen.
+\[
+    y_H = \sum_{k=0}^n C_k e^{\lambda_k x} \quad \forall k < n : C_k \in \mathbb{R}
+\]
+
+\subsubsection{Inhomogene oder partikul\"are L\"osung} \label{sec:inhom-ode-n}
+
+
+\paragraph{Variation der Konstanten}
+
+\subsection{Systeme von Differenzialgleichungen \brpage{564}}
 
 \subsection{Orthogonale Trajektorien}
+Sei \(f(x, y, c) = 0\) eine Kurvenschar. Man findet eine DGL \(F(x, y, y')  = 0\), die die Kurvenschar beschreibt (ohne die freie Variable \(c\)).
 
+Dann die DGL \(G = F(x, y, -1/y') = 0\) beschreibt die \emph{orthogonale Trajektorien} zur Kurvenschar. Die l\"osung von \(G\) ergibt die Kurvenschar \(g(x,y,c)\) und wieder \(\forall x,y,c : g(x,y,c) \perp f(x,y,c)\).
 
 \begin{thebibliography}{3}
   \bibitem{hsr}
